@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            background-color: black;
+        }
+        #ball{
+            z-index:5;
+            position:absolute;
+            top:200px;
+            left:0px;
+            top:200px;
+            width:100px;
+            height:100px;
+            border: 5px solid wheat;
+            border-radius:50%;
+            box-shadow: 2px 5px 100px gold;
+            background:linear-gradient(45deg,#283c86,#45a247);
+        }
+        h1{
+            text-align: center;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div id = "ball" style ="
+background-color: blue;
+top:0px;
+left:0px;
+border-radius: 50%;
+position: absolute;
+z-index: 5;
+width: 50px;
+height: 50px;
+"></div>
+<script>
+    var velocity=100;
+    var positionX = 0;
+    var positionY = 0;
+    var distance=1100;
+    var ball=document.getElementById("ball");
+    var time=1000;
+    var reverse= false;
+    function move(){
+    /*{
+       if(position<=distance)
+       {
+        position= position + velocity;
+        ball.style.left=position +'px'
+       }
+       else{}
+    }
+    setInterval(move,time)*/
+    var Xmin = 0;
+    var Xmax= 300;
+    var Ymin = 0;
+    var Ymax = 300;
+
+    if (reverse){
+      positionX= positionX - velocity;  
+      positionY = positionY - velocity; 
+      ball.style.left = positionX + "px";
+      ball.style.top = positionY + "px";
+
+    }else {
+      positionX= positionX + velocity;  
+      positionY = positionY + velocity; 
+      ball.style.left = positionX + "px";
+      ball.style.top = positionY + "px";
+
+    }
+    if(
+      positionX > Xmax ||
+      positionX ===Xmin ||
+      positionY > Ymax ||
+      positionY ===Ymin
+
+    ){
+      reverse =!reverse;
+    }
+   }
+   setInterval(move,1000);
+</script>
+    <!-- <h1>Ball Movement - Simulation</h1>
+    <div id="ball"></div>
+    <script>
+        var velocity = 5;
+        var positionX = 0;
+        var reverse = false;
+        var ball = document.getElementById('ball');
+
+        //write a function that can change the position of the html element "ball"
+        function moveBall() {
+            // two fixed x-axis coordinates (you will use these variable in step 3)
+            var Xmin = 0;
+            var Xmax = 1420;
+            
+            if(reverse){
+                positionX = positionX - velocity;
+                ball.style.left = positionX + 'px';
+            }
+            
+            else{
+                positionX = positionX + velocity;
+                ball.style.left = positionX + 'px';
+            }
+            
+            if(positionX > Xmax || positionX === Xmin){
+                reverse = !reverse;
+            }
+        }
+        
+        //ball.style.top = positionX + 'px';
+        //ball.style.left = positionY + 'px';
+        
+        // This call the moveBall function every 100ms
+        setInterval(moveBall, 50);
+    </script> -->
+
+</body>
+</html>
+
+
+
+
